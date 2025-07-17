@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-07-2025 a las 02:37:01
+-- Tiempo de generación: 17-07-2025 a las 04:03:41
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -103,13 +103,14 @@ CREATE TABLE `metodos_pago` (
 
 CREATE TABLE `pedido` (
   `id_pedido` int(11) NOT NULL,
+  `codigo_pedido` varchar(20) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_metodo` int(11) NOT NULL,
   `fecha_pedido` datetime NOT NULL DEFAULT current_timestamp(),
   `total_pedido` decimal(10,2) NOT NULL,
   `estado_pedido` enum('pendiente','pagado','rechazado','cancelado') NOT NULL DEFAULT 'pendiente',
   `referencia_pago` varchar(100) DEFAULT NULL,
-  `captura_pago` varchar(255) DEFAULT NULL,
+  `captura_pago` varchar(255) NOT NULL,
   `observaciones` text DEFAULT NULL,
   `id_jugador` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_spanish2_ci;
@@ -187,6 +188,7 @@ ALTER TABLE `metodos_pago`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`id_pedido`),
+  ADD UNIQUE KEY `codigo_pedido` (`codigo_pedido`),
   ADD KEY `id_cliente` (`id_cliente`),
   ADD KEY `id_metodo` (`id_metodo`);
 
