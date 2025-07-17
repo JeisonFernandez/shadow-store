@@ -1,37 +1,61 @@
 # ShadowStore 🎮
 
-**ShadowStore** es un sistema integral de gestión para una tienda online enfocada en la venta de recargas digitales por ID para videojuegos. El sistema incluye tanto una interfaz pública para los clientes como un panel administrativo para la gestión de pedidos, verificación de pagos y administración de productos.
+**ShadowStore** es un sistema integral para una tienda online especializada en la venta de recargas digitales por ID para videojuegos. Ofrece una interfaz para clientes y un panel administrativo para la gestión completa de productos, pedidos y pagos.
+
+---
 
 ## 🛠️ Características principales
 
-- Catálogo en línea de juegos con planes de recarga definidos
+- Catálogo online con juegos y planes de recarga activos
 - Formulario de compra con selección de plan, método de pago y carga de captura
-- Gestión de pedidos y validación manual por administradores
-- Panel de administración con control total de productos, métodos de pago y usuarios
-- Historial de cambios de estado en pedidos para trazabilidad
-- Soporte para múltiples métodos de pago (Pago Móvil, Binance Pay, etc.)
-- Acceso con inicio de sesión obligatorio para realizar pedidos
+- Generación automática de código único para cada pedido
+- Gestión manual de pedidos y actualización de estados (`pendiente`, `pagado`, `rechazado`, `cancelado`)
+- Historial detallado de cambios de estado para trazabilidad
+- Soporte para múltiples métodos de pago: Pago Móvil, Binance Pay, PayPal, tarjeta de crédito
+- Control de acceso mediante registro e inicio de sesión obligatorio
+- Panel administrativo para gestión total del sistema (productos, planes, pagos, usuarios y pedidos)
+
+---
 
 ## 📦 Estructura del proyecto
 
-- **Base de datos:** MySQL
-- **Frontend:** (a definir: HTML/CSS/JS, Blade, etc.)
+- **Base de datos:** MySQL (con esquema normalizado y relaciones bien definidas)
 - **Backend:** Laravel 12
+- **Frontend:** (por definir: HTML/CSS/JS, Blade, Vue, React, etc.)
+
+---
 
 ## 💡 Flujo del cliente
 
-1. El cliente navega el catálogo de juegos.
-2. Selecciona un juego y un plan de recarga.
-3. Llena el formulario: ID del jugador, teléfono, correo, método de pago y captura.
-4. Se genera el pedido con estado “pendiente”.
-5. El administrador valida manualmente el pago y actualiza el estado.
-6. El cliente puede verificar el estado del pedido desde una página de seguimiento.
+1. Navega el catálogo y selecciona un juego y un plan de recarga
+2. Completa formulario con ID del jugador, datos de contacto, método de pago y captura de pago
+3. Se crea un pedido con código único y estado inicial `pendiente`
+4. Administrador valida manualmente el pago y actualiza el estado del pedido
+5. Cliente puede consultar el estado y detalles de su pedido desde la plataforma
+
+---
 
 ## 🔐 Acceso
 
-- Los pedidos solo pueden ser realizados por **usuarios registrados**.
-- Los administradores tienen acceso a un panel privado para la gestión total del sistema.
+- Solo usuarios registrados pueden realizar pedidos
+- Los administradores tienen acceso a un panel privado para gestionar todo el sistema
+
+---
 
 ## 📁 Scripts incluidos
 
-- Por definir...
+- `insert_test.sql`: inserción de datos iniciales para categorías, productos, planes, clientes, métodos de pago, pedidos, detalles y historial de estados
+- `consulta_test.sql`: consultas para obtener información completa de pedidos, detalles y historial de estados
+
+---
+
+## 📝 Notas técnicas
+
+- La tabla `pedido` tiene un campo `codigo_pedido` único y legible, separado del ID auto-incremental
+- Los estados del pedido son un enum: `pendiente`, `pagado`, `rechazado` y `cancelado`
+- Claves foráneas estrictas garantizan integridad referencial entre tablas
+- El historial de estados registra fecha, usuario que realiza el cambio y comentarios opcionales para auditoría
+
+---
+
+¡Gracias por visitar ShadowStore! 🎉
