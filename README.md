@@ -40,21 +40,21 @@
 - Solo usuarios registrados pueden realizar pedidos
 - Los administradores tienen acceso a un panel privado para gestionar todo el sistema
 
----
-
-## 📁 Scripts incluidos
-
-- `insert_test.sql`: inserción de datos iniciales para categorías, productos, planes, clientes, métodos de pago, pedidos, detalles y historial de estados
-- `consulta_test.sql`: consultas para obtener información completa de pedidos, detalles y historial de estados
-
----
-
 ## 📝 Notas técnicas
 
 - La tabla `pedido` tiene un campo `codigo_pedido` único y legible, separado del ID auto-incremental
 - Los estados del pedido son un enum: `pendiente`, `pagado`, `rechazado` y `cancelado`
 - Claves foráneas estrictas garantizan integridad referencial entre tablas
 - El historial de estados registra fecha, usuario que realiza el cambio y comentarios opcionales para auditoría
+
+---
+
+## 👥 Integrantes del grupo
+
+**Sección:** 331  
+- Jeison David Fernandez Ponce – fernandezjeison86@gmail.com
+- Oscar David Bordones Rangel – oscarbordones26@gmail.com 
+- Ricardo Jesus Padilla Sánchez – ricardopsj3043@gmail.com 
 
 ---
 
