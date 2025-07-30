@@ -1,6 +1,6 @@
 USE shadowstore;
 
-INSERT INTO metodos_pago (id_metodo, nombre_metodo, descripcion_metodo, requiere_referencia, requiere_captura, es_manual) VALUES
-(1, 'Pago Móvil', 'Transferencia bancaria vía pago móvil', 1, 1, 1),
-(2, 'Binance Pay', 'Pago a través de Binance Pay', 0, 1, 1),
-(3, 'Zelle', 'Pago internacional vía Zelle', 0, 1, 1);
+INSERT INTO metodos_pago (nombre_metodo, detalles_metodo, imagen_metodo) VALUES
+('Pago Móvil', 'Banco: BNC, Tel: 0414XXXXXXX, CI: V12345678', 'qr_pago_movil.png'),
+('Transferencia Binance', 'Binance ID: 8392012390, Red: BEP20', 'qr_binance.png'),
+('Zelle', 'Correo: recargas@shadowstore.com', 'qr_zelle.png');

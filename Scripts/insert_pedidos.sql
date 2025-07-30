@@ -1,6 +1,7 @@
 USE shadowstore;
 
-INSERT INTO pedido (id_pedido, codigo_pedido, id_cliente, id_metodo, fecha_pedido, total_pedido, estado_pedido, referencia_pago, captura_pago, observaciones, id_jugador) VALUES
-(1, 'PED000001', 1, 1, NOW(), 4.50, 'pendiente', '123456789', 'captura1.jpg', 'Primera compra', 'freefire_123'),
-(2, 'PED000002', 2, 2, NOW(), 1.20, 'pagado', NULL, 'captura2.jpg', NULL, 'mobilelegends_456'),
-(3, 'PED000003', 3, 1, NOW(), 3.00, 'pagado', '987654321', 'captura3.jpg', 'Urgente', 'cod_789');
+INSERT INTO pedido (id_cliente, id_plan, id_metodo, codigo_pedido, id_jugador, captura_pago, total_pedido, referencia_pago, observaciones, estado_pedido)
+VALUES
+(1, 1, 1, 'A1B2C3', 'userCODM123', 'captura1.png', 5.00, 'REF123', 'Sin observaciones', 'pendiente'),
+(2, 3, 2, 'D4E5F6', 'ffplayer456', 'captura2.png', 3.50, 'REF456', 'Cliente frecuente', 'rechazado'),
+(3, 5, 3, 'G7H8I9', 'wildrift789', 'captura3.png', 5.25, 'REF789', NULL, 'pagado');

@@ -1,6 +1,6 @@
 USE shadowstore;
 
-INSERT INTO cliente (id_cliente, nombre_cliente, correo_cliente, telefono_cliente, clave_cliente, es_admin) VALUES
-(1, 'Carlos Pérez', 'carlos@example.com', '04141234567', 'hashedpass1', 0),
-(2, 'Laura Díaz', 'laura@example.com', '04147654321', 'hashedpass2', 1),
-(3, 'José Ramírez', 'jose@example.com', '04145551234', 'hashedpass3', 0);
+INSERT INTO cliente (id_user, nombre_cliente, apellido_cliente, telefono_cliente, cedula_cliente) VALUES
+(2, 'Luis', 'Pérez', '04141234567', 'V12345678'),
+(3, 'María', 'Gómez', '04147654321', 'V87654321'),
+(4, 'Carlos', 'Ramírez', '04145556666', 'V11223344');

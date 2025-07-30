@@ -1,6 +1,7 @@
 USE shadowstore;
 
-INSERT INTO historial_estados_pedido (id_historial, id_pedido, estado_anterior, estado_nuevo, fecha, realizado_por, comentario) VALUES
-(1, 1, 'pendiente', 'pendiente', NOW(), 2, 'Pago confirmado'),
-(2, 2, 'pendiente', 'pagado', NOW(), 2, 'Pago confirmado'),
-(3, 3, 'pendiente', 'pagado', NOW(), 2, 'Pago verificado');
+INSERT INTO historial_estados_pedido (id_pedido, id_user, estado_anterior, nuevo_estado, comentario)
+VALUES
+(1, 1, 'pendiente', 'pagado', 'Pago verificado por admin'),
+(2, 1, 'pendiente', 'rechazado', 'Pago no válido'),
+(3, 1, 'pendiente', 'pagado', 'Pago confirmado sin problemas');
