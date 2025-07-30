@@ -1,61 +1,64 @@
-# ShadowStore 🎮
+# 🎮 ShadowStore
 
-**ShadowStore** es un sistema integral para una tienda online especializada en la venta de recargas digitales por ID para videojuegos. Ofrece una interfaz para clientes y un panel administrativo para la gestión completa de productos, pedidos y pagos.
+**ShadowStore** es un sistema de gestión para una tienda en línea especializada en la venta de recargas digitales por ID para videojuegos. Combina una experiencia de compra sencilla para los clientes con un panel administrativo robusto, permitiendo una gestión eficiente de productos, pedidos y pagos.
 
 ---
 
 ## 🛠️ Características principales
 
-- Catálogo online con juegos y planes de recarga activos
-- Formulario de compra con selección de plan, método de pago y carga de captura
-- Generación automática de código único para cada pedido
-- Gestión manual de pedidos y actualización de estados (`pendiente`, `pagado`, `rechazado`, `cancelado`)
-- Historial detallado de cambios de estado para trazabilidad
-- Soporte para múltiples métodos de pago: Pago Móvil, Binance Pay, PayPal, tarjeta de crédito
-- Control de acceso mediante registro e inicio de sesión obligatorio
-- Panel administrativo para gestión total del sistema (productos, planes, pagos, usuarios y pedidos)
+- Catálogo organizado de juegos con planes de recarga activos.
+- Proceso de compra intuitivo: selección de plan, método de pago y carga de comprobante.
+- Generación automática de un **código único por pedido** para seguimiento fácil.
+- Gestión manual de pedidos con estados actualizables: `pendiente`, `pagado`, `rechazado`, `cancelado`.
+- Historial detallado de cambios de estado con fecha, usuario responsable y comentarios.
+- Soporte para múltiples métodos de pago (como Pago Móvil, transferencias bancarias o criptomonedas).
+- Sistema de autenticación seguro: solo usuarios registrados pueden realizar compras.
+- Panel administrativo completo para gestionar juegos, planes, métodos de pago, clientes y pedidos.
 
 ---
 
-## 📦 Estructura del proyecto
+## 📦 Tecnologías y estructura
 
-- **Base de datos:** MySQL (con esquema normalizado y relaciones bien definidas)
-- **Backend:** Laravel 12
-- **Frontend:** (por definir: HTML/CSS/JS, Blade, Vue, React, etc.)
-
----
-
-## 💡 Flujo del cliente
-
-1. Navega el catálogo y selecciona un juego y un plan de recarga
-2. Completa formulario con ID del jugador, datos de contacto, método de pago y captura de pago
-3. Se crea un pedido con código único y estado inicial `pendiente`
-4. Administrador valida manualmente el pago y actualiza el estado del pedido
-5. Cliente puede consultar el estado y detalles de su pedido desde la plataforma
+- **Base de datos:** MySQL (esquema normalizado con relaciones claras y claves foráneas).
+- **Backend:** Laravel 12 (gestión de lógica, autenticación y API).
+- **Frontend:** Por definir (Blade, HTML/CSS/JS o framework moderno como Vue/React).
 
 ---
 
-## 🔐 Acceso
+## 💡 Flujo de uso
 
-- Solo usuarios registrados pueden realizar pedidos
-- Los administradores tienen acceso a un panel privado para gestionar todo el sistema
+1. El cliente navega el catálogo, selecciona un juego y un plan de recarga.
+2. Completa el formulario con su ID de jugador, método de pago y **sube la captura del pago**.
+3. Se genera un pedido con estado inicial `pendiente` y un código único para seguimiento.
+4. El administrador revisa manualmente el comprobante y actualiza el estado del pedido.
+5. El cliente puede consultar en cualquier momento el estado de su pedido.
+
+---
+
+## 🔐 Control de acceso
+
+- Acceso restringido por roles: **clientes** y **administradores**.
+- Registro e inicio de sesión obligatorios para realizar compras.
+- Los administradores tienen acceso total al sistema desde un panel privado.
+
+---
 
 ## 📝 Notas técnicas
 
-- La tabla `pedido` tiene un campo `codigo_pedido` único y legible, separado del ID auto-incremental
-- Los estados del pedido son un enum: `pendiente`, `pagado`, `rechazado` y `cancelado`
-- Claves foráneas estrictas garantizan integridad referencial entre tablas
-- El historial de estados registra fecha, usuario que realiza el cambio y comentarios opcionales para auditoría
+- El campo `codigo_pedido` es único y legible, ideal para compartir con el cliente sin exponer IDs internos.
+- Los estados del pedido están definidos como `ENUM` para mantener consistencia.
+- La integridad referencial está garantizada mediante claves foráneas en todas las relaciones.
+- El historial de estados (`historial_estados_pedido`) registra cada cambio con auditoría completa: quién lo hizo, cuándo y por qué.
 
 ---
 
-## 👥 Integrantes del grupo
+## 👥 Integrantes del grupo – Sección 331
 
-**Sección:** 331  
-- Jeison David Fernandez Ponce – fernandezjeison86@gmail.com
-- Oscar David Bordones Rangel – oscarbordones26@gmail.com 
-- Ricardo Jesus Padilla Sánchez – ricardopsj3043@gmail.com 
+- **Jeison David Fernandez Ponce** – fernandezjeison86@gmail.com
+- **Oscar David Bordones Rangel** – oscarbordones26@gmail.com
+- **Ricardo Jesus Padilla Sánchez** – ricardopsj3043@gmail.com
 
 ---
 
-¡Gracias por visitar ShadowStore! 🎉
+✨ ¡Gracias por visitar ShadowStore!  
+Un sistema diseñado para vender recargas con seguridad, claridad y control total.
